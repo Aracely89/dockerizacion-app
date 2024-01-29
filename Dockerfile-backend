@@ -1,0 +1,16 @@
+# 
+FROM python:3.12
+
+# 
+WORKDIR /service1
+
+#
+
+#
+COPY ./Backend /service1/
+RUN pip install --no-cache-dir --upgrade -r /service1/requerimientos.txt
+
+# 
+RUN pip install uvicorn
+# 
+CMD ["uvicorn", "main:app","--reload", "--host", "0.0.0.0", "--port", "8000"]
